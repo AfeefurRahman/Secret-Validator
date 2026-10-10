@@ -1,1 +1,522 @@
-*{box-sizing:border-box}body{margin:0;background:#0d151b;color:#e7eeeb;font-family:Arial,Helvetica,sans-serif}header{height:86px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #26343c}header b{font-size:15px;letter-spacing:2px}.mark{display:inline-grid;place-items:center;background:#c5f879;color:#182419;width:30px;height:30px;margin-right:12px;border-radius:6px}small,.eyebrow,.cardhead span{font:11px/1.6 monospace;letter-spacing:1.5px;color:#91a7ae}header small{margin-left:14px}.system{font:12px monospace;color:#c5f879}main{max-width:1180px;margin:auto;padding:52px 28px 25px}.eyebrow{color:#c5f879}.intro{display:grid;grid-template-columns:1.6fr 1fr;gap:64px;align-items:center;margin-bottom:48px}h1{font-size:clamp(36px,4.7vw,61px);font-weight:500;letter-spacing:-2.8px;line-height:1.08;margin:22px 0}h1 em{font-style:normal;color:#a7b8b9}.lead{line-height:1.8;color:#a7b8b9;font-size:15px;margin-bottom:26px}button{background:#c5f879;color:#172315;border:0;padding:14px 20px;border-radius:5px;font-weight:700;cursor:pointer}button:hover{filter:brightness(1.08)}button:disabled{opacity:.6}button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:4px}.brief{border-left:2px solid #405b44;padding:10px 0 10px 28px}.brief h2{font-size:23px;font-weight:500}.brief p{color:#a7b8b9;line-height:1.8;font-size:14px}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.pills span{font:11px monospace;border:1px solid #34444d;padding:8px;border-radius:3px}.workspace{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}.card{border:1px solid #2d3b43;background:#121e25;border-radius:9px;overflow:hidden;min-height:275px}.cardhead{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2d3b43;gap:8px}h2{font-size:17px;margin:0}h3{font-size:17px;font-weight:500;margin:8px 0}.row{display:flex;justify-content:space-between;align-items:center;padding:21px 24px;border-bottom:1px solid #26343c}.row:last-child{border:0}.secondary{background:#22343e;color:#e7eeeb;padding:10px 15px}.muted{color:#91a7ae;font-size:13px}.empty{padding:60px 24px;color:#718992;font-size:14px}.record{padding:24px}.record p{font-size:14px;line-height:1.7}.memo{border-top:1px solid #2d3b43;padding-top:16px;overflow-wrap:anywhere}.submit{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:30px;padding:24px 0}.submit p{margin-bottom:0}form{display:flex;gap:10px;flex:0 1 530px}input{min-width:0;flex:1;background:#0d151b;border:1px solid #40535d;border-radius:5px;padding:13px;color:#e7eeeb;font:14px monospace}.status{min-height:20px;color:#c5f879;font-size:14px}footer{border-top:1px solid #26343c;padding-top:22px;display:flex;justify-content:space-between;gap:15px;color:#718992;font:10px/1.8 monospace}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:760px){header{padding:0 22px}header small,.system{display:none}main{padding:32px 20px}.intro,.workspace{grid-template-columns:1fr;gap:28px}.intro{margin-bottom:30px}.brief{padding-left:20px}.submit{align-items:stretch;flex-direction:column}form{flex:auto}footer{flex-direction:column}.cardhead span{font-size:9px}h1{letter-spacing:-1.5px}}
+
+/* =========================================
+   CYBERCORP - AUDIT AFTER HOURS
+   ========================================= */
+
+/* Global styles */
+:root {
+    --background: #07111b;
+    --surface: #0c1b2a;
+    --surface-hover: #11283a;
+    --border: #234159;
+    --primary: #20e0c3;
+    --primary-hover: #55f5d8;
+    --text: #f1f5ff;
+    --muted: #9ab3c8;
+    --subtle: #718da5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 85% 8%,
+            rgba(18, 88, 121, 0.15),
+            transparent 45%
+        ),
+        var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    min-height: 86px;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7, 17, 27, 0.95);
+}
+
+header b {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.mark {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-right: 15px;
+    border: 2px solid var(--primary);
+    border-radius: 9px;
+    color: var(--primary);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+header small {
+    margin-left: 12px;
+    color: var(--primary);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.system {
+    color: var(--primary);
+    font: 12px monospace;
+}
+
+/* =========================================
+   MAIN LAYOUT
+   ========================================= */
+
+main {
+    max-width: 1240px;
+    margin: auto;
+    padding: 55px 28px 30px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font: 12px/1.6 monospace;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.intro {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 45px;
+    align-items: center;
+    margin: 35px 0 45px;
+}
+
+h1 {
+    margin: 20px 0 25px;
+    font-size: clamp(38px, 5vw, 65px);
+    font-weight: 750;
+    letter-spacing: -2px;
+    line-height: 1.12;
+}
+
+h1 em {
+    color: var(--primary);
+    font-style: italic;
+}
+
+.lead {
+    max-width: 650px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    padding: 14px 23px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(
+        135deg,
+        #31f1d3,
+        #0cbca7
+    );
+    color: #041b1a;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(20, 224, 195, 0.15);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(20, 224, 195, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   ASSIGNMENT CARD
+   ========================================= */
+
+.brief {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        rgba(15, 38, 56, 0.95),
+        rgba(9, 24, 38, 0.95)
+    );
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.brief h2 {
+    margin: 17px 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.brief p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.pills span {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: rgba(13, 39, 56, 0.8);
+    color: #afd5ef;
+    font: 12px monospace;
+}
+
+/* =========================================
+   WORKSPACE
+   ========================================= */
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 22px;
+}
+
+.card {
+    min-height: 300px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(
+        145deg,
+        #0d2030,
+        #0a1826
+    );
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    border-color: #32617b;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cardhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.cardhead span {
+    color: #8dbbe0;
+    font: 11px/1.6 monospace;
+    letter-spacing: 1.5px;
+}
+
+h3 {
+    margin: 8px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Invoice rows */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 25px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+}
+
+.row:hover {
+    background: rgba(36, 80, 104, 0.15);
+}
+
+.row:last-child {
+    border-bottom: 0;
+}
+
+/* Secondary buttons */
+.secondary {
+    padding: 10px 16px;
+    border: 1px solid #32526a;
+    border-radius: 6px;
+    background: #163047;
+    color: #d8eafa;
+    box-shadow: none;
+}
+
+.secondary:hover {
+    background: #20465e;
+}
+
+/* Empty workspace */
+.empty {
+    padding: 65px 25px;
+    color: var(--subtle);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Document details */
+.record {
+    padding: 25px;
+}
+
+.record p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.memo {
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   FLAG SUBMISSION
+   ========================================= */
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 35px;
+    border: 1px solid rgba(32, 224, 195, 0.65);
+    border-radius: 12px;
+    background: linear-gradient(
+        120deg,
+        rgba(2, 66, 63, 0.55),
+        rgba(9, 29, 41, 0.95)
+    );
+}
+
+.submit h2 {
+    font-size: 28px;
+}
+
+.submit p {
+    margin-bottom: 0;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+form {
+    display: flex;
+    gap: 12px;
+    flex: 0 1 530px;
+}
+
+input {
+    min-width: 0;
+    flex: 1;
+    padding: 14px 17px;
+    border: 1px solid #41647a;
+    border-radius: 7px;
+    background: #0b1e2e;
+    color: var(--text);
+    font: 14px monospace;
+}
+
+input::placeholder {
+    color: #7693a7;
+}
+
+/* Submission feedback */
+.status {
+    min-height: 24px;
+    margin-top: 18px;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 35px;
+    padding: 25px 0;
+    border-top: 1px solid var(--border);
+    color: var(--subtle);
+    font: 11px/1.8 monospace;
+    letter-spacing: 0.3px;
+}
+
+/* Screen-reader-only label */
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 900px) {
+    .intro,
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .intro {
+        gap: 30px;
+    }
+
+    .submit {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form {
+        flex: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        min-height: 75px;
+        padding: 15px 20px;
+    }
+
+    header b {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    header small,
+    .system {
+        display: none;
+    }
+
+    main {
+        padding: 32px 18px;
+    }
+
+    h1 {
+        font-size: 40px;
+        letter-spacing: -1.5px;
+    }
+
+    .lead {
+        font-size: 14px;
+    }
+
+    .brief {
+        padding: 25px 20px;
+    }
+
+    .cardhead {
+        padding: 20px;
+    }
+
+    .cardhead span {
+        font-size: 10px;
+    }
+
+    .row {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .submit {
+        padding: 25px 20px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button,
+    .card,
+    .row {
+        transition: none;
+    }
+}
